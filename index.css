@@ -1,32 +1,80 @@
+@font-face {
+  font-family: gothic;
+  src: url("fonts/FeathergraphyDecoration-BXYx.ttf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* pointer-events: none; */
+}
+.site--shell {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.main--container {
+  width: 100vw;
+  max-width: 1400px;
+  height: 100vh;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+.name {
+  font-family: gothic;
+  color: white;
+  font-size: 200px;
+  text-shadow: 5px 5px 15px rgb(81, 156, 223);
 }
 
 img {
-  max-width: 100%;
+  width: 720px;
   display: block;
 }
-
-.mask-container {
+.mask-slider-frame {
   position: relative;
+}
+.mask-container {
+  position: absolute;
+  transition: transform 1s ease-out;
+}
+.slide-framer-left {
+  transform: translateX(-450px);
 }
 
 .color-image {
   position: absolute;
+  /* max-width: 100%; */
+  width: 720px;
   inset: 0;
   background-size: cover;
-  background-image: url("");
-
-  -webkit-mask-image: url("image-mask.png");
+  background-image: url("components/src/images/pcolor.png");
+  -webkit-mask-image: url("components/src/images/slide with no white.png");
   -webkit-mask-size: cover;
   -webkit-mask-position: 0% 0%;
-  transition: -webkit-mask-position 700ms steps(24);
+  mask-image: url("components/src/images/slide with no white.png");
+  mask-size: 720px;
+  mask-position: 0% 0%;
+  transition: -webkit-mask-position;
+}
+.coloredTop {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  opacity: 0%;
+  transition: opacity 0.6s ease-out;
+}
+.visible {
+  opacity: 100%;
 }
 
 .mask-animation {
-  animation: colorize 700ms steps(24) forwards;
+  animation: colorize 1000ms steps(24) forwards;
 }
 /* can change, consider action film no steps? */
 @keyframes colorize {
@@ -34,4 +82,70 @@ img {
     -webkit-mask-position: 0% 0%;
     mask-position: 0% 0%;
   }
+  100% {
+    -webkit-mask-position: 100% 0%;
+    mask-position: 100% 0%;
+  }
+}
+
+.test {
+  color: aqua;
+  position: absolute;
+  z-index: 10;
+  width: 100px;
+  top: 50%;
+  border: 3px solid aqua;
+  padding: 20px;
+  -webkit-box-reflect: below 0 linear-gradient(transparent, white);
+}
+.test:hover {
+  scale: 105%;
+}
+
+.test::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: aqua;
+  box-shadow: 5px -8px 0 aqua, 5px 8px 0 aqua;
+  transition: width 0.5s ease-in-out, left 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.test:hover::before {
+  width: 60%;
+  height: 100%;
+  left: -2px;
+  box-shadow: 5px 0px 0 aqua, 5px 0px 0 aqua;
+  transition-delay: 0s, 0s, 0.5s, 1s;
+}
+
+.test::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: aqua;
+  box-shadow: -5px -8px 0 aqua, -5px 8px 0 aqua;
+  transition: width 0.5s ease-in-out, right 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
+  transition-delay: 1s, 0.5s, 0s, 0s;
+}
+
+.test:hover::after {
+  width: 60%;
+  height: 100%;
+  right: -2px;
+  box-shadow: -5px 0 0 aqua, -5px 0 0 aqua;
+  transition-delay: 0s, 0s, 0.5s, 1s;
 }
