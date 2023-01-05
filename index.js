@@ -7,6 +7,6 @@ resetButton.addEventListener("click", () => {
   maskedImage.classList.remove("mask-animation");
   setTimeout(() => maskedImage.classList.add("mask-animation"), 100);
 
-  setTimeout(() => maskedContainer.classList.add("slide-framer-left"), 1750);
+  setTimeout(() => maskedContainer.classList.add("slide-framer-left"), 500);
   setTimeout(() => coloredTop.classList.add("visible"), 1500);
 });

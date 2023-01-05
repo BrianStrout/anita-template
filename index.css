@@ -2,7 +2,9 @@
   font-family: gothic;
   src: url("fonts/FeathergraphyDecoration-BXYx.ttf") format("truetype");
 }
-
+:root {
+  --box: aqua;
+}
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +25,8 @@
   height: 100vh;
   background-color: black;
   overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .name {
@@ -41,7 +45,7 @@ img {
 }
 .mask-container {
   position: absolute;
-  transition: transform 1s ease-out;
+  transition: transform 1.2s cubic-bezier(1, -0.01, 0.91, 0.99);
 }
 .slide-framer-left {
   transform: translateX(-450px);
@@ -74,7 +78,7 @@ img {
 }
 
 .mask-animation {
-  animation: colorize 1000ms steps(24) forwards;
+  animation: colorize 450ms steps(24) forwards;
 }
 /* can change, consider action film no steps? */
 @keyframes colorize {
@@ -88,18 +92,34 @@ img {
   }
 }
 
+.main--grid--right {
+  background-color: darkolivegreen;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .test {
-  color: aqua;
+  color: var(--box);
   position: absolute;
   z-index: 10;
   width: 100px;
   top: 50%;
-  border: 3px solid aqua;
+  border: 3px solid var(--box);
   padding: 20px;
   -webkit-box-reflect: below 0 linear-gradient(transparent, white);
+  transition: color 0.5s linear 1s, border 0.5s linear 0.5s,
+    font-size 0.5s ease-in-out 2.5s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .test:hover {
   scale: 105%;
+  color: black;
+  box-shadow: 0 0 10px var(--box), 0 0 20px var(--box), 0 0 40px var(--box),
+    0 0 80px var(--box), 0 0 160px var(--box);
+  border: 3px solid black;
 }
 
 .test::before {
@@ -111,8 +131,8 @@ img {
   transform: translateY(-50%);
   width: 20px;
   height: 2px;
-  background-color: aqua;
-  box-shadow: 5px -8px 0 aqua, 5px 8px 0 aqua;
+  background-color: var(--box);
+  box-shadow: 5px -8px 0 var(--box), 5px 8px 0 var(--box);
   transition: width 0.5s ease-in-out, left 0.5s ease-in-out,
     box-shadow 0.5s ease-in-out;
   transition-delay: 1s, 0.5s, 0s, 0s;
@@ -122,8 +142,9 @@ img {
   width: 60%;
   height: 100%;
   left: -2px;
-  box-shadow: 5px 0px 0 aqua, 5px 0px 0 aqua;
+  box-shadow: 5px 0px 0 var(--box), 5px 0px 0 var(--box);
   transition-delay: 0s, 0s, 0.5s, 1s;
+  font-size: 2.2rem;
 }
 
 .test::after {
@@ -135,8 +156,8 @@ img {
   transform: translateY(-50%);
   width: 20px;
   height: 2px;
-  background-color: aqua;
-  box-shadow: -5px -8px 0 aqua, -5px 8px 0 aqua;
+  background-color: var(--box);
+  box-shadow: -5px -8px 0 var(--box), -5px 8px 0 var(--box);
   transition: width 0.5s ease-in-out, right 0.5s ease-in-out,
     box-shadow 0.5s ease-in-out;
   transition-delay: 1s, 0.5s, 0s, 0s;
@@ -146,6 +167,13 @@ img {
   width: 60%;
   height: 100%;
   right: -2px;
-  box-shadow: -5px 0 0 aqua, -5px 0 0 aqua;
+  box-shadow: -5px 0 0 var(--box), -5px 0 0 var(--box);
   transition-delay: 0s, 0s, 0.5s, 1s;
+}
+
+.test > h6 {
+  z-index: 15;
+  pointer-events: none;
+  font-family: gothic;
+  font-size: 2rem;
 }
