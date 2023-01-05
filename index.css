@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.mask-container {
+  position: relative;
+}
+
+.color-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-image: url("");
+
+  -webkit-mask-image: url("image-mask.png");
+  -webkit-mask-size: cover;
+  -webkit-mask-position: 0% 0%;
+  transition: -webkit-mask-position 700ms steps(24);
+}
+
+.mask-animation {
+  animation: colorize 700ms steps(24) forwards;
+}
+/* can change, consider action film no steps? */
+@keyframes colorize {
+  0% {
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+  }
+}
