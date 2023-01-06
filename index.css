@@ -1,7 +1,13 @@
 @font-face {
-  font-family: gothic;
-  src: url("fonts/LaSignoraDemoVersionRegular-X3jp9.ttf") format("truetype");
+  font-family: "gothic";
+  src: url("fonts/LaSignoraDemoVersionRegular-X3jp9.ttf");
 }
+/* Webfont: YustikaRegular */
+@font-face {
+  font-family: "Yustika";
+  src: url("fonts/Yustika.ttf");
+}
+
 :root {
   --box: aqua;
   --background-color: black;
@@ -22,6 +28,19 @@
   justify-content: center;
   background-color: var(--background-color);
 }
+
+.mobile-menu-box {
+  position: absolute;
+  z-index: 99;
+  top: 5vw;
+  right: 5vw;
+  width: 20vw;
+  max-width: 100px;
+  height: 20vw;
+  max-height: 100px;
+  border: 3px solid white;
+}
+
 .enter {
   position: absolute;
   z-index: 50;
@@ -62,25 +81,25 @@
   text-justify: center;
 }
 .char1 {
-  transform: rotate(-36deg);
+  /* transform: rotate(-36deg); */
 }
 .char2 {
-  transform: rotate(-24deg);
+  /* transform: rotate(-24deg); */
 }
 .char3 {
-  transform: rotate(-16deg);
+  /* transform: rotate(-16deg); */
 }
 .char4 {
-  transform: rotate(0deg);
+  /* transform: rotate(0deg); */
 }
 .char5 {
-  transform: rotate(12deg);
+  /* transform: rotate(12deg); */
 }
 .char6 {
-  transform: rotate(24deg);
+  /* transform: rotate(24deg); */
 }
 .char7 {
-  transform: rotate(36deg);
+  /* transform: rotate(36deg); */
 }
 
 .touched {
@@ -96,7 +115,7 @@
   width: 100vw;
   max-width: 1400px;
   height: 100vh;
-  background-color: black;
+  /* background-color: black; */
   overflow-x: hidden;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -113,10 +132,14 @@
   pointer-events: none;
 }
 .name {
-  font-family: gothic;
+  font-family: Yustika;
   color: white;
   font-size: 200px;
-  text-shadow: 5px 5px 15px rgb(81, 156, 223);
+  text-shadow: 0px 0px 15px rgb(81, 156, 223);
+  transition: 1.5s -webkit-filter linear;
+}
+.blurred {
+  filter: blur(1rem);
 }
 
 img {
@@ -136,11 +159,11 @@ img {
 }
 .mask-container {
   position: absolute;
-  transition: transform 1s cubic-bezier(1, -0.01, 0.91, 0.99);
-}
-.slide-framer-left {
   transform: translateX(-450px);
+  /* transition: transform 1s cubic-bezier(1, -0.01, 0.91, 0.99); */
 }
+/* .slide-framer-left {
+} */
 
 .color-image {
   position: absolute;
@@ -175,7 +198,7 @@ img {
 }
 
 .mask-animation {
-  animation: colorize 450ms steps(24) forwards;
+  animation: colorize 1000ms steps(24) forwards;
 }
 /* can change, consider action film no steps? */
 @keyframes colorize {
@@ -206,12 +229,12 @@ img {
   gap: 50px;
 }
 
-.test {
+.link-buttons {
   color: var(--box);
   position: relative;
   /* position: absolute;
   z-index: 10; */
-  width: 150px;
+  width: 200px;
   /* top: 50%; */
   border: 3px solid var(--box);
   padding: 20px;
@@ -222,7 +245,33 @@ img {
   justify-content: space-around;
   align-items: center;
 }
-.test:hover {
+
+.linked-up {
+  transform: translateY(-200vh);
+}
+
+#link-insta {
+  transition: transform 1s cubic-bezier(1, -0.01, 0.91, 0.99) 0.5s;
+}
+
+#link-insta .linked-up {
+  transition: transform 10s cubic-bezier(1, -0.01, 0.91, 0.99) 0.5s;
+}
+
+#link-only {
+  transition: transform 1s cubic-bezier(1, -0.01, 0.91, 0.99) 0.375s;
+}
+#link-tele {
+  transition: transform 1s cubic-bezier(1, -0.01, 0.91, 0.99) 0.25s;
+}
+#link-wish {
+  transition: transform 1s cubic-bezier(1, -0.01, 0.91, 0.99) 0.125s;
+}
+#link-gallery {
+  transition: transform 1s cubic-bezier(1, -0.01, 0.91, 0.99) 0s;
+}
+
+.link-buttons:hover {
   scale: 105%;
   color: black;
   box-shadow: 0 0 10px var(--box), 0 0 20px var(--box), 0 0 40px var(--box),
@@ -232,7 +281,7 @@ img {
     linear-gradient(transparent, rgba(255, 255, 255, 0.493));
 }
 
-.test::before {
+.link-buttons::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -247,7 +296,7 @@ img {
     height 0.5625s ease-in-out 0s, box-shadow 0.375s linear 0s;
 }
 
-.test:hover::before {
+.link-buttons:hover::before {
   width: 60%;
   height: 100%;
   left: -2px;
@@ -256,7 +305,7 @@ img {
   font-size: 2.2rem;
 }
 
-.test::after {
+.link-buttons::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -272,7 +321,7 @@ img {
   transition-delay: 0.375s, 0.375s, 0s, 0s;
 }
 
-.test:hover::after {
+.link-buttons:hover::after {
   width: 60%;
   height: 100%;
   right: -2px;
@@ -280,14 +329,14 @@ img {
   transition-delay: 0s, 0s, 0.375s, 0.375s;
 }
 
-.test > h6 {
+.link-buttons > h6 {
   z-index: 15;
   pointer-events: none;
-  font-family: gothic;
-  font-size: 2rem;
+  font-family: Yustika;
+  font-size: 1.5rem;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 900px) {
   .main--container {
     position: relative;
     max-width: 100vw;
@@ -296,10 +345,10 @@ img {
   }
 
   .name {
-    font-family: gothic;
-    color: white;
-    font-size: 100px;
-    text-shadow: 5px 5px 15px rgb(81, 156, 223);
+    font-family: Yustika;
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    /* text-shadow: 5px 5px 15px rgb(81, 156, 223); */
   }
   img {
     width: var(--img-mobile-size);
@@ -322,6 +371,6 @@ img {
   }
 
   .slide-framer-left {
-    transform: translateX(-30vw);
+    transform: translateX(-55vw);
   }
 }

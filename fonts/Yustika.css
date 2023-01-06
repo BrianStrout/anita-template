@@ -1,0 +1,12 @@
+/* Webfont: YustikaRegular */@font-face {
+    font-family: 'Yustika';
+    src: url('Yustika.eot'); /* IE9 Compat Modes */
+    src: url('Yustika.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Yustika.woff') format('woff'), /* Modern Browsers */
+         url('Yustika.woff2') format('woff2'), /* Modern Browsers */
+         url('Yustika.ttf') format('truetype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
