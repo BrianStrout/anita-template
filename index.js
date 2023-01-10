@@ -27,14 +27,14 @@ const dropInMenuLinks = () => {
 
 const introducing = () => {
   maskedImage.classList.remove("mask-animation");
-  setTimeout(() => maskedImage.classList.add("mask-animation"), 100);
+  setTimeout(() => maskedImage.classList.add("mask-animation"), 250);
   setTimeout(() => {
     maskedContainer.classList.add("slide-framer-left");
   }, 250);
   setTimeout(() => {
     coloredTop.classList.add("visible");
     coloredBottom.classList.add("hidden");
-  }, 1200);
+  }, 12000);
   setTimeout(() => {}, 2500);
 };
 
