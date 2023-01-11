@@ -187,7 +187,7 @@ svg:hover .bottom {
 
 .name--container {
   position: absolute;
-  z-index: 1;
+  z-index: 30;
   width: 100%;
   height: 100%;
   display: flex;
@@ -239,7 +239,7 @@ img {
   inset: 0;
   background-size: cover;
   background-image: url("components/src/images/pcolor-d.png");
-  -webkit-mask-image: url("components/src/images/slide with no white.png");
+  -webkit-mask-image: url("components/src/images/inkslide2.png");
   -webkit-mask-size: cover;
   -webkit-mask-position: 0% 0%;
   mask-image: url("components/src/images/slide with no white.png");
@@ -265,7 +265,7 @@ img {
 }
 
 .mask-animation {
-  animation: colorize 1800ms steps(24) forwards 1.5s;
+  animation: colorize 800ms steps(18) forwards 1.5s;
 }
 /* can change, consider action film no steps? */
 @keyframes colorize {
